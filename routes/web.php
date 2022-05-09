@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BikeController;
+use App\Http\Controllers\CarsController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +26,6 @@ Route::get('/view-edit-bikes/{id}',[BikeController::class,'editBikes'])->name('a
 Route::post('/update-bike/{id}',[BikeController::class,'updateBikes'])->name('admin.updateBikes');
 Route::get('/delete-bike/{id}',[BikeController::class,'deleteBikes'])->name('admin.deleteBikes');
 
-
+Route::get('/view-create-cars',[CarsController::class,'viewCreatecars'])->name('admin.viewCars');
 
 
