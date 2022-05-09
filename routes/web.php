@@ -28,6 +28,10 @@ Route::post('/update-bike/{id}',[BikeController::class,'updateBikes'])->name('ad
 Route::get('/delete-bike/{id}',[BikeController::class,'deleteBikes'])->name('admin.deleteBikes');
 //cars 
 Route::get('/view-create-cars',[CarsController::class,'viewCreatecars'])->name('admin.viewCars');
+//for save 
 Route::POST('/save-cars',[CarsController::class,'saveCar'])->name('admin.saveCar');
+//view cars
+Route::get('/view-car',[CarsController::class,'viewCars'])->name('admin.viewCars');
+
 
 

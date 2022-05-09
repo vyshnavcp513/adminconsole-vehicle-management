@@ -11,7 +11,7 @@ home page
     </div>    
     <div class="h-50"></div>    
     <div class="col">
-        <a class="btn btn-primary" style="color: white"  href="#" role="button">View Car</a>
+        <a class="btn btn-primary" style="color: white"  href="{{route('admin.viewCars')}}" role="button">View Car</a>
     </div>
     <div class="w-100,h-100"></div>
     <div class="col">

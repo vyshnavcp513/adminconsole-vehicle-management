@@ -19,4 +19,8 @@ class CarsController extends Controller
        $car->save();
        return redirect('/')->with('status','car added successfully');
    } 
+   public function viewCars(){
+    $cars = car::all();
+    return view('viewCarTable', compact('cars'));
+   }
 }
