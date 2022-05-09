@@ -7,7 +7,7 @@ home page
     <div class="row">
 
     <div class="col">
-            <a class="btn btn-primary" style="color: white" href="{{route('admin.viewCars')}}" role="button">Add Car</a>
+            <a class="btn btn-primary" style="color: white" href="{{route('admin.createCars')}}" role="button">Add Car</a>
     </div>    
     <div class="h-50"></div>    
     <div class="col">

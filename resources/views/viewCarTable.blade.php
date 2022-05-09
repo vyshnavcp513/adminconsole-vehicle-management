@@ -22,13 +22,13 @@ table form
             <td>{{$car->description}}</td>
             <td>{{$car->company}}</td>
             <td>
-                <a  class="btn btn-primary" href="">edit</a>
+                <a  class="btn btn-primary" href="{{route('admin.editCars',$car->id)}}">edit</a>
             </td>
             <td>
                 
-                {{-- <a  href="{{route('admin.deleteBikes',$bike->id)}}"><button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal{{$bike->id}}">
+                <a  href="{{route('admin.deleteCars',$car->id)}}"><button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal{{$car->id}}">
                     Delete
-                  </button></a> --}}
+                  </button></a>
             </td>
         </tr>
         @endforeach

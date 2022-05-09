@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Car;
 class CarsController extends Controller
 {
-    public function viewCreateCars(){
+    public function CreateCars(){
         return view('formCar');
     }
     public function saveCar (Request $request)
@@ -23,4 +23,25 @@ class CarsController extends Controller
     $cars = car::all();
     return view('viewCarTable', compact('cars'));
    }
+   public function editCars($id){
+    $cars = Car::find($id);
+    return view('carsEditForm', compact('cars'));
+}
+public function updateCars(Request $request, $id){
+    $car = Car::find($id);
+    
+        $car->name = $request->name;
+        $car->model_year= $request->model_year;
+        $car->description = $request->description;
+        $car->company = $request->company;
+        $car->save();
+        return redirect()->back()->with(["success"=>'update successfully']);
+    }
+    public function deleteCars($id){
+        $car = car::find($id);
+        $car->delete();
+        return redirect()->back()->with('status','Deleted Successfully');
+ 
+    }
+
 }

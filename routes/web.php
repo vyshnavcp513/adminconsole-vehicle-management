@@ -27,11 +27,17 @@ Route::get('/view-edit-bikes/{id}',[BikeController::class,'editBikes'])->name('a
 Route::post('/update-bike/{id}',[BikeController::class,'updateBikes'])->name('admin.updateBikes');
 Route::get('/delete-bike/{id}',[BikeController::class,'deleteBikes'])->name('admin.deleteBikes');
 //cars 
-Route::get('/view-create-cars',[CarsController::class,'viewCreatecars'])->name('admin.viewCars');
+Route::get('/view-create-cars',[CarsController::class,'viewCreatecars'])->name('admin.createCars');
 //for save 
 Route::POST('/save-cars',[CarsController::class,'saveCar'])->name('admin.saveCar');
 //view cars
 Route::get('/view-car',[CarsController::class,'viewCars'])->name('admin.viewCars');
+//edit cars
+Route::get('/view-edit-cars/{id}',[CarsController::class,'editCars'])->name('admin.editCars');
+//update cars
+Route::post('/update-bike/{id}',[CarsController::class,'updateCars'])->name('admin.updateCars');
+//delete cars
+Route::get('/delete-car/{id}',[CarsController::class,'deleteCars'])->name('admin.deleteCars');
 
 
 
