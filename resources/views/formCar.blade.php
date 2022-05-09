@@ -3,7 +3,7 @@
 bike create form
 @endsection
 @section('content')
-<form action="" method="POST">
+<form action="{{route('admin.saveCar')}}" method="POST">
     @csrf
     <div class="form-group">
       <label for="name" class="required form-label" style="color: white">name<small class="text-danger">*</small></label>
