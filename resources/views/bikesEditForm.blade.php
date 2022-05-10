@@ -3,8 +3,9 @@
 bikes edit form 
 @endsection
 @section('content')
-<form action="{{route('admin.updateBikes',$bikes->id)}}" method="POST">
+<form action="{{route('admin.updateBikes')}}" method="POST">
     @csrf
+    <input type="hidden" name="id" value="{{$bikes->id}}">
     <div class="form-group">
       <label for="name" class="required form-label" style="color: white">name<small class="text-danger">*</small></label>
       <input type="text" value="{{$bikes->name}}" class="form-control" name="name" aria-describedby="name" placeholder="Enter vehicle name " required>

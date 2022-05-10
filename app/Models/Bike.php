@@ -16,4 +16,8 @@ class Bike extends Model
         'comany',
 
     ];
+
+    public function isActive(){
+        return !$this->is_active;
+    }
 }

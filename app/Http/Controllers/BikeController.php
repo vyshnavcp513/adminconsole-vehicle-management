@@ -31,9 +31,8 @@ class BikeController extends Controller
         return view('bikesEditForm', compact('bikes'));
     }
 
-    public function updateBikes(Request $request, $id){
-    $bike = Bike::find($id);
-    
+    public function updateBikes(Request $request){
+    $bike = Bike::find($request->id);
         $bike->name = $request->name;
         $bike->model_year= $request->model_year;
         $bike->description = $request->description;
@@ -49,4 +48,11 @@ class BikeController extends Controller
         return redirect()->back()->with('status','Deleted Successfully');
  
     }
+     public function isActive($id){
+         $bike=bike::find($id);
+        //  dd($bike);
+         $bike->is_active=$bike->isActive();
+         $bike->save();
+         return redirect()->back()->with(['success' =>'toggle successfully']);
+     }
 }
