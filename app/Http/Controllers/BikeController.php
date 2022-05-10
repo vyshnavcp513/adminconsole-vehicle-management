@@ -41,6 +41,20 @@ class BikeController extends Controller
         $bike->model_year= $request->model_year;
         $bike->description = $request->description;
         $bike->company = $request->company;
+        if($request->file('image')){
+            if($bike->images){
+                @unlink(public_path($bike->images));
+                $image=$request->file('image');
+                $imageName=time().$image->getClientOriginalName();
+                $image->move(public_path('/images'),$imageName);
+                $bike->images='/images/'.$imageName;
+            }else{
+                $image=$request->file('image');
+                $imageName=time().$image->getClientOriginalName();
+                $image->move(public_path('/images'),$imageName);
+                $bike->images='/images/'.$imageName;
+            }
+        }
         $bike->save();
         return redirect()->back()->with(["success"=>'update successfully']);
     

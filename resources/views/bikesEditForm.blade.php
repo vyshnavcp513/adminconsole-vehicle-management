@@ -3,7 +3,7 @@
 bikes edit form 
 @endsection
 @section('content')
-<form action="{{route('admin.updateBikes')}}" method="POST">
+<form action="{{route('admin.updateBikes')}}" method="POST" enctype="multipart/form-data">
     @csrf
     <input type="hidden" name="id" value="{{$bikes->id}}">
     <div class="form-group">
@@ -22,6 +22,13 @@ bikes edit form
       <div class="form-group">
         <label for="company" style="color: white" >company</label>
         <input type="text" value="{{$bikes->company}}" class="form-control" name="company" placeholder="enter vehicle company name">
+      </div>
+      @if($bikes->images)
+      <img src="{{asset($bikes->images)}}"/>
+      @endif
+      <div class="form-group">
+        <label for="images" style="color: white" >images<small class="text-danger">*</small></label>
+        <input type="file"  class="form-control" name="image"  required>
       </div>
     <button type="submit" class="btn btn-primary">update</button>
   </form>
