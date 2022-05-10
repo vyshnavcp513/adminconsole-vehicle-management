@@ -16,6 +16,10 @@ class CarsController extends Controller
        $car-> model_year= $request->model_year;
        $car->description = $request->description;
        $car->company = $request->company;
+       $image=$request->file('image');
+       $imageName=time().$image->getClientOriginalName();
+       $image->move(public_path('/images'),$imageName);
+       $car->images='/images/'.$imageName;
        $car->save();
        return redirect('/')->with('status','car added successfully');
    } 
@@ -34,6 +38,20 @@ public function updateCars(Request $request){
         $car->model_year= $request->model_year;
         $car->description = $request->description;
         $car->company = $request->company;
+        if($request->file('image')){
+            if($car->images){
+                @unlink(public_path($car->images));
+                $image=$request->file('image');
+                $imageName=time().$image->getClientOriginalName();
+                $image->move(public_path('/images'),$imageName);
+                $car->images='/images/'.$imageName;
+            }else{
+                $image=$request->file('image');
+                $imageName=time().$image->getClientOriginalName();
+                $image->move(public_path('/images'),$imageName);
+                $car->images='/images/'.$imageName;
+            }
+        }
         $car->save();
         return redirect()->back()->with(["success"=>'update successfully']);
     }
@@ -43,5 +61,12 @@ public function updateCars(Request $request){
         return redirect()->back()->with('status','Deleted Successfully');
  
     }
+    // public function isActive($id){
+    //     $car=car::find($id);
+    //    //  dd($bike);
+    //     $car->is_active=$car->isActive();
+    //     $car->save();
+    //     return redirect()->back()->with(['success' =>'toggle successfully']);
+    // }
 
 }

@@ -16,4 +16,7 @@ class Car extends Model
         'company',
 
     ];
+    public function isActive(){
+        return !$this->is_active;
+    }
 }

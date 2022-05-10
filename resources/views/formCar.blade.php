@@ -3,7 +3,7 @@
 bike create form
 @endsection
 @section('content')
-<form action="{{route('admin.saveCar')}}" method="POST">
+<form action="{{route('admin.saveCar')}}" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="form-group">
       <label for="name" class="required form-label" style="color: white">name<small class="text-danger">*</small></label>
@@ -21,6 +21,10 @@ bike create form
       <div class="form-group">
         <label for="company" style="color: white" >company</label>
         <input type="text" class="form-control" name="company" placeholder="enter the vehicle company">
+      </div>
+      <div class="form-group">
+        <label for="images" style="color: white" >images<small class="text-danger">*</small></label>
+        <input type="file" class="form-control" name="image"  required>
       </div>
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
