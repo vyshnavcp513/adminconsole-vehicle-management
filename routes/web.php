@@ -35,7 +35,7 @@ Route::get('/view-car',[CarsController::class,'viewCars'])->name('admin.viewCars
 //edit cars
 Route::get('/view-edit-cars/{id}',[CarsController::class,'editCars'])->name('admin.editCars');
 //update cars
-Route::post('/update-car/{id}',[CarsController::class,'updateCars'])->name('admin.updateCars');
+Route::post('/update-car',[CarsController::class,'updateCars'])->name('admin.updateCars');
 //delete cars
 Route::get('/delete-car/{id}',[CarsController::class,'deleteCars'])->name('admin.deleteCars');
 

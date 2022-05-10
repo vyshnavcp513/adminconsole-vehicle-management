@@ -27,8 +27,8 @@ class CarsController extends Controller
     $cars = Car::find($id);
     return view('carsEditForm', compact('cars'));
 }
-public function updateCars(Request $request, $id){
-    $car = Car::find($id);
+public function updateCars(Request $request){
+    $car = Car::find($request->id);
     
         $car->name = $request->name;
         $car->model_year= $request->model_year;
