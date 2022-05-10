@@ -10,6 +10,8 @@ table form
             <th style="color: white">model_year</th>
             <th style="color: white">description</th>
             <th style="color: white">company</th>
+            <th style="color: white">Images</th>
+
             <th style="color: #ffffff">action</th>
             <th>Edit</th>
             <th>Delete</th>
@@ -20,8 +22,14 @@ table form
         <tr>
             <td>{{$bike->name}}</td>
             <td>{{$bike->model_year}}</td>
+            
             <td>{{$bike->description}}</td>
             <td>{{$bike->company}}</td>
+            @if($bike->images)
+            <td><img src="{{asset($bike->images)}}" style="width:50px;height:50px;object-fit:cover" /></td>
+            @else
+            <td>No Image</td>
+            @endif
             <td>
                 <a  class="@if($bike->  is_active) btn btn-primary @else btn btn-danger @endif" href="{{route('admin.isActive',$bike->id)}}">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-power" viewBox="0 0 16 16">
