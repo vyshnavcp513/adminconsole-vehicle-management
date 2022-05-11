@@ -16,7 +16,7 @@ class Car extends Model
         'company',
 
     ];
-    public function isActive(){
-        return !$this->is_active;
+    public function toggle(){
+        return !$this->is_Active;
     }
 }

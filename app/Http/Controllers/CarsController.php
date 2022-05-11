@@ -61,12 +61,12 @@ public function updateCars(Request $request){
         return redirect()->back()->with('status','Deleted Successfully');
  
     }
-    // public function isActive($id){
-    //     $car=car::find($id);
-    //    //  dd($bike);
-    //     $car->is_active=$car->isActive();
-    //     $car->save();
-    //     return redirect()->back()->with(['success' =>'toggle successfully']);
-    // }
+    public function isActive($id){
+        $car=car::find($id);
+       //  dd($bike);
+        $car->is_active=$car->toggle();
+        $car->save();
+        return redirect()->back()->with(['success' =>'toggle successfully']);
+    }
 
 }

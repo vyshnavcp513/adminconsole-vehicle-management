@@ -41,7 +41,7 @@ Route::get('/delete-car/{id}',[CarsController::class,'deleteCars'])->name('admin
 
 Route::get('is_active/{id}', [BikeController::class, 'isActive'])->name('admin.isActive');
 
-// Route::get('is_active/{id}', [CarsController::class, 'isActive'])->name('admin.is_Active');
+Route::get('is_active/{id}', [CarsController::class, 'isActive'])->name('admin.is_Active');
 
 
 
