@@ -27,7 +27,6 @@
                 <h1 style="color: rgb(217, 217, 22);font-family:verdana">VEHICLE MANAGEMENT</h1>
                 <br><br>
                 <div >
-                    
                     @yield('content')
                 </div>
 
